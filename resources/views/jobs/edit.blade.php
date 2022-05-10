@@ -62,8 +62,8 @@
                 <div class="form-group mt-3">
                     <label class="mb-2" for="status">Statut de l'annonce</label>
                     <select class="form-control" value="{{ old('status', $job->status) }}" name="status" id="status">
-                        <option value="1" @if(old('ststus', $job->status) === 1) selected @endif >Publier</option>
-                        <option value="0" @if(old('ststus', $job->status) === 0) selected @endif >Ne pas publier
+                        <option value="1" @if(old('status', $job->status) === 1) selected @endif >Publier</option>
+                        <option value="0" @if(old('status', $job->status) === 0) selected @endif >Ne pas publier
                         </option>
                     </select>
                 </div>
@@ -90,10 +90,10 @@
                 <div class="form-group mt-3">
                     <label class="mb-2" for="profession_id">Profession</label>
                     <select class="form-control" name="profession_id" id="profession_id">
-                        <option value="" selected>Choisissez une catégorie</option>
+                        <option value="">Choisissez une catégorie</option>
                         @foreach($professions as $profession)
                             <option value="{{ $profession->id }}"
-                                    @if(old('profession_id', $job->profession_id) === $profession->id) selected @endif >
+                                    @if(old('profession_id', $job->profession->id) == $profession->id ) selected @endif >
                                 {{ $profession->name }}
                             </option>
                         @endforeach
@@ -119,10 +119,10 @@
                 <div class="form-group mt-3">
                     <label class="mb-2" for="city_id">Ville</label>
                     <select class="form-control" name="city_id" id="city_id">
-                        <option value="" selected>Choisissez une ville.</option>
+                        <option value="">Choisissez une ville.</option>
                         @foreach($cities as $city)
                             <option value="{{ $city->id }}"
-                                    @if(old('city_id', $job->city_id) === $city->id) selected @endif >
+                                    @if(old('city_id', $job->city->id) == $city->id) selected @endif >
                                 {{ $city->name }}
                             </option>
                         @endforeach
@@ -131,7 +131,7 @@
                 <!--ville/-->
 
                 <button type="submit" class="block bg-green-700 text-white px-3 py-2 my-5 rounded
-                    @if(auth()->user()->suspended === 1) disabled @endif 
+                    @if(auth()->user()->suspended === 1) disabled @endif
                 ">
                     Modifier mon annonce
                 </button>

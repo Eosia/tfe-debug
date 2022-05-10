@@ -20,6 +20,10 @@
                         <p class="font-semibold">{{ Illuminate\Support\Str::limit($conversation->messages->last()->content, 50) }}
                         </p>
 
+                        <div class="flex flex-column justify-content-center align-items-center">
+                            Stage: {{ $conversation->job->title }}
+                        </div>
+
                         @if($conversation->messages->last()->user->id !== auth()->user()->id)
                             <div class="flex flex-column justify-content-center align-items-center">
                                 <i class="fa-solid fa-comment-dots fa-3x text-green-600 mb-2"></i>
