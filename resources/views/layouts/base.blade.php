@@ -6,6 +6,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--favicon-->
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo.ico') }}">
+
+    <meta name="description" content="Tu cherches un stage pour valider ton année ? Vous désirez engager un stagiare ? Alors vous eêtes au bon endroit !">
     <!--google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
