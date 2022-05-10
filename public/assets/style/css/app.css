@@ -1,0 +1,67 @@
+@charset "UTF-8";
+html, body {
+  margin: 0 auto !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  background-color: #F3F4F6 !important;
+  overflow-x: hidden !important;
+}
+
+/*Définition des polices*/
+.font1 {
+  font-family: "Quicksand", sans-serif !important;
+}
+
+.font2 {
+  font-family: "Raleway", sans-serif !important;
+}
+
+.font3 {
+  font-family: "Roboto", sans-serif !important;
+}
+
+/*Définition des couleurs*/
+.color1 {
+  color: #185ADB !important;
+}
+
+.bg1 {
+  background-color: #185ADB !important;
+}
+
+.color2 {
+  color: #FFA300 !important;
+}
+
+.bg2 {
+  background-color: #FFA300 !important;
+}
+
+.color3 {
+  color: #F3F4F6 !important;
+}
+
+.bg3 {
+  background-color: #F3F4F6 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .space-mobile {
+    margin-top: 3vh !important;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .search-navbar {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .left-space {
+    margin-left: 10vw !important;
+  }
+}
+.navbar-border {
+  border-bottom: 3px solid #185ADB !important;
+}
+
+/*# sourceMappingURL=app.css.map */
