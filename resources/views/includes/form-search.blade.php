@@ -24,7 +24,7 @@
                     <div class="form-group mt-3 ">
                         <label class="mb-2" for="profession_id">Profession</label>
                         <select class="form-control rounded-full" id="profession_id" name="profession">
-                            <option value="" selected>Choisissez une profession</option>
+                            <option value="" selected> - </option>
                             @foreach($professions as $profession)
                                 <option value="{{ $profession->id }}" >
                                     {{ $profession->name }}
@@ -38,7 +38,7 @@
                     <div class="form-group mt-3">
                         <label class="mb-2" for="city_name">Ville</label>
                         <select class="form-control rounded-full" id="city_id" name="city">
-                            <option value="" selected>Choisissez une ville.</option>
+                            <option value="" selected> - </option>
                             @foreach($cities as $city)
                                 <option value="{{ $city->id }}" >
                                     {{ $city->name }}

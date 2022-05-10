@@ -13,10 +13,9 @@ use App\Models\{
 
 class Job extends Model
 {
-    use HasFactory;
-    use HasSlug;
+    use HasFactory, HasSlug;
 
-    protected $fillable = ['title', 'user_id', 'content','status', 'moderate', 'profession_id', 'city_id', 'time', 'proposal_name', 'conversation_id'];
+    protected $fillable = ['title', 'user_id', 'slug', 'content','status', 'moderate', 'profession_id', 'city_id', 'time', 'proposal_name', 'conversation_id'];
 
     public function getRouteKeyName()
     {
@@ -74,6 +73,7 @@ class Job extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
 
     public function isLiked()
     {

@@ -3,7 +3,6 @@
 namespace App\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Auth;
 use App\Models\{
   User, Conversation, Proposal, Job, Message
 };
@@ -22,7 +21,6 @@ class ConversationPolicy
      */
     public function view(User $user, Conversation $conversation)
     {
-        $user = Auth::user()->id;
         if ($user->id == $conversation->job->user_id) {
             return $conversation->from == $conversation->job->user_id;
         } else {

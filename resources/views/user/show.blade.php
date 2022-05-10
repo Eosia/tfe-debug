@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-    <section class="container-fluid">
+    <section class="container-fluid mx-auto text-center">
         <div class="row">
                 <div class='flex space-x-2 bg3 w-full shadow-md rounded-lg overflow-hidden mx-auto'>
                     <div class="mx-auto min-w-sm bg3 min-w-max">
@@ -13,20 +13,19 @@
                                 <div
                                     class="h-24 w-24 md rounded-full relative avatar flex items-end justify-end text-purple-600 min-w-max absolute -top-16 flex bg-purple-200 text-purple-100 row-start-1 row-end-3 text-purple-650 ring-1 ring-white">
 
-                                    @if(!empty($user->profile_photo_path))
-                                        <img src="/storage/{{ $user->profile_photo_path }}" alt="Photo de {{ $user->name }}"
+                                        <img src="{{ asset('/assets/img/avatar.png') }}" alt="avatar"
                                              class="h-24 w-24 md rounded-full relative" >
-                                    @else
-                                        <img src="{{ asset('/assets/img/avatar.png') }}" alt="Photo de {{ $user->name }}"
-                                             class="h-24 w-24 md rounded-full relative" >
-                                    @endif
+            
                                     <div class="absolute"></div>
                                 </div>
-                                <div class="flex flex-col space-y-1 justify-center items-center -mt-15 w-full">
-                                    <span class="text-md whitespace-nowrap text-gray-800 font-semibold">
-                                        <i class="fa-solid fa-user mr-3 pt-1 fa-2x"></i>
+                                <div class="texte-center mx-auto align-items-center flex-col space-y-1 justify-center items-center -mt-15 w-full">
+                                    <div
+                                    class="py-4 flex justify-center items-center w-full divide-x divide-gray-400 divide-solid">
+                                    <span class="text-center px-2">
                                         Profil de {{ $user->firstname }} {{ $user->lastname }}
-                                    </span>
+                                    </span>    
+                                </div>
+
                                     <div class="py-2 mt-5 flex space-x-2">
                                         <div class="flex justify-center  max-h-max whitespace-nowrap focus:outline-none  focus:ring
                                         focus:border-blue-300 rounded max-w-max text-gray-100 bg-green-500 hover:bg-green-600 px-4 py-1
@@ -34,9 +33,9 @@
                                             <span class="mr-2">
                                             </span>
                                             @if($user->role_id === 2)
-                                               Il/Elle est étudiant(e)
+                                               Etudiant(e)
                                             @else
-                                                Il/Elle est rectuteu(r/se)
+                                                Rectuteu(r/se)
                                             @endif<span class="ml-2"></span>
                                         </div>
                                         <div class="flex justify-center  max-h-max whitespace-nowrap focus:outline-none  focus:ring

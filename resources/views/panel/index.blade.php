@@ -8,7 +8,8 @@
         <h1 class="color1 font3 display-6">Bonjour {{ auth()->user()->firstname }} {{ auth()->user()->lastname }} !</h1>
     </div>
 
-    @if(auth()->user()->suspended === 1)
+    @if(auth()->check() && auth()->user()->suspended != 0 ) 
+
         <div class="mx-auto text-center bg-danger mt-5">
             <p class="text-dark font3 text-xl py-2">
                 Votre compte a été modéré, veuillez-nous joindre via la page
@@ -25,8 +26,10 @@
         <div class="row mx-auto">
             <div class="col-12 col-sm-11 col-md-6 col-lg-4 col-xl-2 mb-5 mx-auto text-end">
                 <a href="{{ route('jobs.create') }}" class="flex justify-content-evenly align-items-center btn btn-success text-uppercase
-                    @if(auth()->user()->suspended === 1) disabled @endif ">
-                    Ajouter un stage
+                @if(auth()->check() && auth()->user()->suspended != 0 ) 
+                disabled 
+                @endif ">
+                Ajouter un stage
                     <span class="ml-1">
                             <i class="fa-solid fa-circle-plus fa-1x"></i>
                     </span>
@@ -165,7 +168,7 @@
                                             </li>
 
                                             @if ($proposal->validated)
-                                                <span class="bg-white border border-green-500 text-xs p-1 my-2 inline-block text-green-500 rounded">Déjà validé</span>
+                                                <span class="bg-white border border-green-500 text-xs p-1 my-2 inline-block text-green-500 rounded">Validé</span>
                                             @else
                                                 <div class="container-fluid">
                                                     <div class="flex justify-start align-content-center mt-1">
@@ -206,3 +209,4 @@
 
 
 @endsection
+

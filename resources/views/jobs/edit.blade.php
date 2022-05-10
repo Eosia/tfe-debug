@@ -130,7 +130,9 @@
                 </div>
                 <!--ville/-->
 
-                <button type="submit" class="block bg-green-700 text-white px-3 py-2 my-5 rounded">
+                <button type="submit" class="block bg-green-700 text-white px-3 py-2 my-5 rounded
+                    @if(auth()->user()->suspended === 1) disabled @endif 
+                ">
                     Modifier mon annonce
                 </button>
 

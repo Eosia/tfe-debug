@@ -2,10 +2,16 @@
 
 @section('content')
 
-    @if(Auth::check() && Auth::user()->id == $job->user_id)
+    @if(auth()->check() && auth()->user()->id  != $job->user_id)
+
+    @else
         <div class="row mx-auto">
             <div class="col-12 col-sm-10 col-md-6 col-lg-5 col-xl-3 mb-5 mx-auto text-end">
-                <a href="{{ route('jobs.edit', ['job'=> $job->slug]) }}" class="flex justify-content-evenly align-items-center btn btn-warning text-uppercase">
+                <a href="{{ route('jobs.edit', ['job'=> $job->slug]) }}" class="flex justify-content-evenly align-items-center btn btn-warning text-uppercase
+                    @if(auth()->check() && auth()->user()->suspended != 0 ) 
+                    disabled 
+                    @endif
+                    ">
                     Modifier l'annonce
                     <span class="ml-1">
                       <i class="fa-solid fa-file-pen"></i>
@@ -93,7 +99,7 @@
 
     </div>
 
-    @if($job->user->suspended === 1)
+    @if(auth()->user()->suspended != 0)
         <div class="mx-auto text-center bg-danger my-5">
             <p class="text-dark font3 text-xl py-2">
                 Votre compte a été modéré, veuillez-nous joindre via la page
@@ -122,12 +128,16 @@
     @endif
 
 
-    <!-- boutons de retour-->
-    <a href="{{ route('home.index') }}" class="btn-lg bg-blue-600 text-white px-2 py-1 rounded text-decoration-none">Retour à l'accueil</a>
 
-    @if($job->isLiked() === true )
-        <a href="{{ route('panel.index') }}" class="btn-lg bg2 text-white px-2 py-1 rounded ml-5 text-decoration-none">Retour aux favoris</a>
-    @endif
+
+    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <a href="{{ route('home.index') }}" class="btn-lg bg-blue-600 text-white px-2 py-1 rounded text-decoration-none">Accueil</a>
+        
+        @if($job->isLiked() === true )
+        <a href="{{ route('panel.index') }}" class="btn-lg bg2 text-white px-2 py-1 rounded ml-5 text-decoration-none">Favoris</a>
+        @endif
+        
+      </div>
 
 
 @endsection

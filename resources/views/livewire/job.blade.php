@@ -6,9 +6,6 @@
         <h2 class="text-xl font-bold color1 font1 text-uppercase">
             {{ $job->title }}
         </h2>
-        <p>
-            {{ $job->user->role->name }}
-        </p>
 
         <!-- bouton ajout favoris -->
         <button wire:click="addLike">
@@ -48,7 +45,7 @@
             <div class="flex justify-start align-items-center">
                 <i class="fa-solid fa-briefcase fa-2x mr-3 color1"></i>
                 <span>
-                    Métier: {{ $job->profession->name }}
+                    {{ $job->profession->name }}
                 </span>
             </div>
 
@@ -57,7 +54,7 @@
             <div class="flex justify-start align-items-center">
                 <i class="fa-solid fa-location-dot fa-2x mr-3 color1"></i>
                 <span>
-                    Ville: {{ $job->city->name }}
+                    {{ $job->city->name }}
                 </span>
             </div>
         </div>

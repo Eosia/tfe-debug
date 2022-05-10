@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\{
     Conversation,
     Message,
-    Proposal,
-    User
+    Proposal
 };
 
 class ConversationController extends Controller
@@ -26,12 +25,10 @@ class ConversationController extends Controller
 
     public function show(Conversation $conversation)
     {
-        abort_if($conversation->from !== auth()->user()->id && $conversation->to !== auth()->user()->id , 403 );
+        abort_if($conversation->from != auth()->user()->id && $conversation->to != auth()->user()->id , 403 );
 
-        $user = auth()->user();
         return view('conversations.show', [
             'conversation' => $conversation,
-            'user' => $user
         ]);
     }
 }

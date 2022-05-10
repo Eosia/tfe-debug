@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-    @if(Auth::user()->suspended != 0)
+    @if(auth()->user()->suspended != 0)
         <div class="mx-auto text-center bg-danger mt-5">
             <p class="text-dark font3 text-xl py-2">
                 Votre compte a été modéré, veuillez-nous joindre via la page
@@ -10,9 +10,8 @@
                 </a>
                 pour le débloquer.
             </p>
-            
         </div>
     @else
-        <livewire:conversation :conversation="$conversation">
+    <livewire:conversation :conversation="$conversation">
     @endif
 @endsection
