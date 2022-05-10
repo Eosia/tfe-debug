@@ -1,15 +1,15 @@
 @extends('layouts.base')
 
 @section('content')
-
+@auth
     @if(auth()->check() && auth()->user()->id  != $job->user_id)
 
     @else
         <div class="row mx-auto">
             <div class="col-12 col-sm-10 col-md-6 col-lg-5 col-xl-3 mb-5 mx-auto text-end">
                 <a href="{{ route('jobs.edit', ['job'=> $job->slug]) }}" class="flex justify-content-evenly align-items-center btn btn-warning text-uppercase
-                    @if(auth()->check() && auth()->user()->suspended != 0 ) 
-                    disabled 
+                    @if(auth()->check() && auth()->user()->suspended != 0 )
+                    disabled
                     @endif
                     ">
                     Modifier l'annonce
@@ -20,7 +20,7 @@
             </div>
         </div>
     @endif
-
+@endauth
 
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-11 col-xxl-10
     px-3 py-2 mb-3 shadow-sm hover:border-blue-300 rounded border-2 border-gray-300 w-100">
@@ -99,6 +99,8 @@
 
     </div>
 
+
+@auth
     @if(auth()->user()->suspended != 0)
         <div class="mx-auto text-center bg-danger my-5">
             <p class="text-dark font3 text-xl py-2">
@@ -127,17 +129,18 @@
     </section>
     @endif
 
-
+@endauth
 
 
     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
         <a href="{{ route('home.index') }}" class="btn-lg bg-blue-600 text-white px-2 py-1 rounded text-decoration-none">Accueil</a>
-        
+
+    @auth
         @if($job->isLiked() === true )
         <a href="{{ route('panel.index') }}" class="btn-lg bg2 text-white px-2 py-1 rounded ml-5 text-decoration-none">Favoris</a>
         @endif
-        
-      </div>
 
+      </div>
+    @endauth
 
 @endsection
