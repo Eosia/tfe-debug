@@ -41,7 +41,7 @@
             <div class="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
                 <div class="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
                     <div class="md:7/12 lg:w-6/12">
-                        <h2 class="text-2xl text-gray-900 font-bold md:text-4xl">Vous avez du mal à trouver un stagiare ?</h2>
+                        <h2 class="text-2xl text-gray-900 font-bold md:text-4xl">Vous avez du mal à trouver un stagaire ?</h2>
                         <p class="mt-6 text-gray-600">Vous cherchez celui à qui transmettre votre savoir ?</p>
                         <p class="mt-4 text-gray-600">Envie d'un coup de main dans ta recherche ?</p>
                         <a href="{{ route('home.index') }}" class="mt-6 bg1 text-xl btn btn-md color2 rounded-md font1 px-2 py-2 w-full">
