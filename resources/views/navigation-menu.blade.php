@@ -44,7 +44,7 @@
                             {{ __('Messagerie') }}
                         </x-jet-nav-link>
 
-                        @if(auth()->user()->role_id === 1)
+                        @if(Auth::user()->role->id === 1)
                             <x-jet-nav-link href="/admin"
                                                        :active="request()->routeIs('/admin')">
                                 {{ __('Admin') }}
@@ -234,7 +234,7 @@
                     {{ __('Messagerie') }}
                 </x-jet-responsive-nav-link>
 
-                @if(auth()->user()->role_id === 1)
+                @if(Auth::user()->role->id === 1)
                     <x-jet-responsive-nav-link href="/admin"
                                                :active="request()->routeIs('/admin')">
                         {{ __('Admin') }}
