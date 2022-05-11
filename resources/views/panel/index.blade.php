@@ -119,6 +119,18 @@
                 <div class="w-30">
                     @foreach(auth()->user()->jobs as $job)
                         <div class="px-2 py-1  shadow-sm hover:shadow-md rounded border-2 border-gray-30 text-sm text-gray-700">
+
+                            @if($job->moderate != 0 ) 
+                            <div class="mx-auto text-center bg-danger mt-5 col-12 ">
+                                <p class="text-dark font3 text-sm py-2">
+                                    Votre annonce a été modérée, veuillez-nous joindre via la page
+                                    <a href="{{ route('contact') }}" class="text-white text-uppercase mx-1">
+                                        contact
+                                    </a>
+                                    pour le débloquer.
+                                </p>
+                            </div>
+                            @endif
                             <div class="col-12  mx-auto text-end">
                                 <div class="flex justify-end align-content-center mt-1">
                                     <a href="{{ route('jobs.show', [$job->slug]) }}"
@@ -137,6 +149,7 @@
                                     </form>
                                 </div>
                             </div>
+                        
                             <div class="flex-column justify-between">
                                 <h2 class="text-xl font-bold text-green-800 my-3">
                                     {{ $job->title }}
