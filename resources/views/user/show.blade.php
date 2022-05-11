@@ -32,10 +32,12 @@
                                         flex items-center hover:shadow-lg">
                                             <span class="mr-2">
                                             </span>
-                                            @if($user->role_id === 2)
+                                            @if($user->role->id=== 2)
                                                Etudiant(e)
-                                            @else
+                                            @elseif($user->role->id === 3)
                                                 Rectuteu(r/se)
+                                            @else
+                                                Staff
                                             @endif<span class="ml-2"></span>
                                         </div>
                                         <div class="flex justify-center  max-h-max whitespace-nowrap focus:outline-none  focus:ring
